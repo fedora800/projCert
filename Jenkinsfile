@@ -5,7 +5,7 @@ pipeline {
 
    stages {
 
-        stage('Get-Repo')  {
+        stage('STAGE-GET-REPO')  {
             steps {
                 script {
                      try{
@@ -21,7 +21,7 @@ pipeline {
         }
 
         // stage-monitor
-        stage("Monitor") {
+        stage("STAGE-MONITOR") {
             steps { echo "Monitor"  }
         }
 
