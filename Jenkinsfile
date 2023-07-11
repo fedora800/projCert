@@ -1,5 +1,5 @@
 def PrintStageName() {
-  echo '-----------------${env.STAGE_NAME}-----------------'
+  echo "-----------------${env.STAGE_NAME}-----------------"
 }
 
 pipeline {
@@ -15,6 +15,7 @@ pipeline {
 
       stage("STAGE-ENVIRONMENT-VARIABLES"){
         steps{
+              PrintStageName()
           echo "[1] - BUILD_NUMBER = ${env.BUILD_NUMBER}"
           sh 'echo [2] - BUILD_NUMBER = $BUILD_NUMBER'
 
@@ -30,6 +31,8 @@ pipeline {
                
             steps {
               PrintStageName()
+          echo "xx STAGE_NAME = ${env.STAGE_NAME}"
+          sh 'xx - STAGE_NAME = $STAGE_NAME'
                 script {
                      try{
                            // Get some code from a GitHub repository
