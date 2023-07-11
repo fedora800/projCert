@@ -1,3 +1,6 @@
+def PrintStageName() {
+  echo '-----------------${STAGE_NAME}-----------------'
+}
 
 pipeline {
 
@@ -6,7 +9,8 @@ pipeline {
    stages {
 
         stage('STAGE-GET-REPO')  {
-            echo '-----------------${STAGE_NAME}-----------------'
+               
+            PrintStageName()
             steps {
                 script {
                      try{
