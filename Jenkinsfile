@@ -15,15 +15,8 @@ pipeline {
 
       stage("STAGE-ENVIRONMENT-VARIABLES"){
         steps{
-              PrintStageName()
-          echo "[1] - BUILD_NUMBER = ${env.BUILD_NUMBER}"
-          sh 'echo [2] - BUILD_NUMBER = $BUILD_NUMBER'
-
-          echo "[1] - STAGE_NAME = ${env.STAGE_NAME}"
-          sh 'echo [2] - STAGE_NAME = $STAGE_NAME'
-
-          echo "Current user is ${env.USER_NAME}"
-          echo "Current user id is ${env.USER_ID} type: ${env.USER_ID.class}"
+          PrintStageName()
+          echo "BUILD_NUMBER = ${env.BUILD_NUMBER}"
         }
       }
 
@@ -31,8 +24,6 @@ pipeline {
                
             steps {
               PrintStageName()
-          echo "xx STAGE_NAME = ${env.STAGE_NAME}"
-          sh 'xx - STAGE_NAME = $STAGE_NAME'
                 script {
                      try{
                            // Get some code from a GitHub repository
@@ -48,7 +39,10 @@ pipeline {
 
         // stage-monitor
         stage("STAGE-MONITOR") {
-            steps { echo "Monitor"  }
+            steps { 
+              PrintStageName()
+              echo "Monitor"  
+            }
         }
 
     } // end-stages
