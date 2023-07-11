@@ -8,6 +8,20 @@ pipeline {
 
    stages {
 
+      stage("List env vars"){
+        steps{
+          sh "printenv | sort"
+        }
+      }
+  
+      stage("Using env vars"){
+        steps{
+          echo "BUILD_NUMBER = ${env.BUILD_NUMBER}"
+          sh 'echo the BUILD_NUMBER = $BUILD_NUMBER'
+  
+        }
+      }
+
         stage('STAGE-GET-REPO')  {
                
             steps {
