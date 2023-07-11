@@ -1,5 +1,5 @@
 def PrintStageName() {
-  echo '-----------------${STAGE_NAME}-----------------'
+  echo '-----------------${env.STAGE_NAME}-----------------'
 }
 
 pipeline {
