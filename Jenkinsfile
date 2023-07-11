@@ -10,8 +10,8 @@ pipeline {
 
         stage('STAGE-GET-REPO')  {
                
-            PrintStageName()
             steps {
+              PrintStageName()
                 script {
                      try{
                            // Get some code from a GitHub repository
