@@ -6,14 +6,13 @@ pipeline {
 
    agent { label 'linux-agents' }
 
+   environment {
+     USER_NAME = "joesmith"
+     USER_ID = 115
+   }   
+
    stages {
 
-      stage("List env vars"){
-        steps{
-          sh "printenv | sort"
-        }
-      }
-  
       stage("Using env vars"){
         steps{
           echo "[1] - BUILD_NUMBER = ${env.BUILD_NUMBER}"
@@ -21,6 +20,9 @@ pipeline {
 
           echo "[1] - STAGE_NAME = ${env.STAGE_NAME}"
           sh 'echo [2] - STAGE_NAME = $STAGE_NAME'
+
+          echo "Current user is ${env.USER_NAME}"
+          echo "Current user id is ${env.USER_ID} type: ${env.USER_ID.class}"
         }
       }
 
