@@ -6,6 +6,7 @@ pipeline {
    stages {
 
         stage('STAGE-GET-REPO')  {
+            echo '-----------------${STAGE_NAME}-----------------'
             steps {
                 script {
                      try{
